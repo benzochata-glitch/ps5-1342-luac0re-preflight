@@ -1,0 +1,66 @@
+name: "13.42 Test Result"
+description: "Report an exact FW 13.42 benign preflight result"
+title: "[13.42 result] "
+labels: ["13.42", "test-result"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post serial numbers, PSN identifiers, IP addresses, savedata or credentials.
+  - type: input
+    id: firmware
+    attributes:
+      label: Firmware
+      placeholder: "13.42"
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: PS5 model family
+      description: Family only; do not include serial number
+      placeholder: "CFI-10xx / CFI-11xx / CFI-12xx / Slim"
+    validations:
+      required: true
+  - type: input
+    id: luac0re
+    attributes:
+      label: Luac0re version or commit
+      placeholder: "version / commit / unknown"
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Verdict
+      options:
+        - PASS
+        - DENY
+        - INCONCLUSIVE
+        - CRASH/EXIT
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Complete E40 output
+      description: Paste only the E40_* text lines
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Describe application exit/restart behavior without personal/device identifiers
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Confirmation
+      options:
+        - label: "I did not modify the firmware check."
+          required: true
+        - label: "I did not intentionally run a kernel exploit concurrently with this probe."
+          required: true
+        - label: "I removed serial/account/network identifiers from this report."
+          required: true

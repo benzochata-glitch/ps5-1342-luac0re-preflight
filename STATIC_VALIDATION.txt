@@ -1,0 +1,3 @@
+PASS: public probe policy check
+PASS: release file checksums verified
+NOTE: Lua runtime syntax/execution was not performed in this environment; the probe was source-audited against the public Luac0re API surface.
